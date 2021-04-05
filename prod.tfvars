@@ -1,0 +1,11 @@
+region              = "eu-central-1"
+az1                 = "eu-central-1a"
+az2                 = "eu-central-1b"
+cidr                = "10.0.0.0/16"
+env_name            = "iti_prod"
+public1_subnet_cidr = "10.0.1.0/24"
+public2_subnet_cidr = "10.0.2.0/24"
+public3_subnet_cidr = "10.0.3.0/24"
+public4_subnet_cidr = "10.0.4.0/24"
+ami_id              = "ami-0767046d1677be5a0"
+
