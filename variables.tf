@@ -37,3 +37,33 @@ variable "az2" {
 variable "ami_id" {
   type = string
 }
+
+# RDS Variables
+variable "rds_identifier" {
+  type = string
+}
+
+variable "rds_db_name" {
+  type = string
+}
+
+variable "rds_user" {
+  type = string
+}
+
+variable "rds_passwd" {
+  type = string
+}
+
+variable "rds_port" {
+  type = string
+}
+
+# Redis Variables
+variable "redis_group_id" {
+  type = string
+}
+
+variable "redis_port" {
+  type = string
+}

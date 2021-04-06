@@ -8,4 +8,10 @@ public2_subnet_cidr = "10.0.2.0/24"
 public3_subnet_cidr = "10.0.3.0/24"
 public4_subnet_cidr = "10.0.4.0/24"
 ami_id              = "ami-0767046d1677be5a0"
-
+rds_identifier      = "iti-db"
+rds_db_name         = "iti"
+rds_user            = "iti"
+rds_passwd          = "mypasswd1231"
+rds_port            = 3306 
+redis_group_id      = "iti-redis"
+redis_port          = 6379

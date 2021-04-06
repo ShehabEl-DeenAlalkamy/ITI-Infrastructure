@@ -28,6 +28,16 @@ variable "public4_subnet_cidr" {
   default = "10.0.4.0/24"
 }
 
+variable "private1_subnet_cidr" {
+  type    = string
+  default = "10.0.5.0/24"
+}
+
+variable "private2_subnet_cidr" {
+  type    = string
+  default = "10.0.6.0/24"
+}
+
 variable "az1" {
   type    = string
   default = "us-east-1a"
