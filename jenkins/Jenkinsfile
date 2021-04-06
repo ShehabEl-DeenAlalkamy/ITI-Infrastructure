@@ -1,0 +1,38 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('init') {
+      steps {
+        // Get some code from a GitHub repository
+        git 'https://github.com/ShehabEl-DeenAlalkamy/ITI-Infrastructure.git'
+
+        withCredentials([
+          [
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: 'AWS_CREDENTIALS',
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]
+        ]) {
+          sh 'terraform init'
+        }
+      }
+    }
+
+    stage('apply') {
+      steps {
+        withCredentials([
+          [
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: 'AWS_CREDENTIALS',
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]
+        ]) {
+           sh 'terraform apply --var-file=dev.tfvars -auto-approve' 
+        }
+      }
+    }
+  }
+}
