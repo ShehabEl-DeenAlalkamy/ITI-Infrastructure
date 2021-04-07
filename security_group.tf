@@ -60,13 +60,13 @@ resource "aws_security_group" "application" {
 
 resource "aws_security_group" "rds" {
   name        = "Relational DataBase"
-  description = "Allow TCP port 3306 inbound traffic"
+  description = "Allow TCP port ${var.rds_port} inbound traffic"
   vpc_id      = module.network.vpc_id
 
   ingress {
-    description = "TCP port 3306 from VPC CIDR"
-    from_port   = 3306
-    to_port     = 3306
+    description = "TCP port ${var.rds_port} from VPC CIDR"
+    from_port   = var.rds_port
+    to_port     = var.rds_port
     protocol    = "tcp"
     cidr_blocks = [var.cidr]
   }
@@ -85,13 +85,13 @@ resource "aws_security_group" "rds" {
 
 resource "aws_security_group" "redis" {
   name        = "ElastiCache"
-  description = "Allow TCP port 6379 inbound traffic"
+  description = "Allow TCP port ${var.redis_port} inbound traffic"
   vpc_id      = module.network.vpc_id
 
   ingress {
-    description = "TCP port 6379 from VPC CIDR"
-    from_port   = 6379
-    to_port     = 6379
+    description = "TCP port ${var.redis_port} from VPC CIDR"
+    from_port   = var.redis_port
+    to_port     = var.redis_port
     protocol    = "tcp"
     cidr_blocks = [var.cidr]
   }
